@@ -6,9 +6,8 @@ void dijkstra(int G[V][V],int n,int startnode)
 	int cost[V][V],distance[V],pred[V];
 	int visited[V],count,mindistance,nextnode,i,j;
 
-	//pred[] stores the predecessor of each node
-	//count gives the number of nodes seen so far
-	//create the cost matrix
+	//pred[] guarda o antecessor de cada nó
+	//count dá o numero de nós examinados
 	for(i=0;i<n;i++)
 		for(j=0;j<n;j++)
 			if(G[i][j]==0)
@@ -16,7 +15,6 @@ void dijkstra(int G[V][V],int n,int startnode)
 			else
 				cost[i][j]=G[i][j];
 
-	//initialize pred[],distance[] and visited[]
 	for(i=0;i<n;i++)
 	{
 		distance[i]=cost[startnode][i];
@@ -32,7 +30,7 @@ void dijkstra(int G[V][V],int n,int startnode)
 	{
 		mindistance=INT_MAX;
 
-		//nextnode gives the node at minimum distance
+		//nextnode dá o nó de menor distância
 		for(i=0;i<n;i++)
 			if(distance[i]<mindistance&&!visited[i])
 			{
@@ -52,7 +50,7 @@ void dijkstra(int G[V][V],int n,int startnode)
 		count++;
 	}
 
-	//printa caminho para cada n�
+	//printa caminho para cada nó
 	for(i=0;i<n;i++)
 		if(i!=startnode)
 		{
