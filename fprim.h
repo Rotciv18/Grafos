@@ -3,7 +3,7 @@
 int V;
 
 
-//retorna vertice n„o examinado de menor valor ponderado
+//retorna vertice n√£o examinado de menor valor ponderado
 int minKey(int key[], bool mstSet[])
 {
 
@@ -31,42 +31,37 @@ void printMST(int parent[], int n, int graph[V][V])
 
 void primMST(int graph[V][V])
 {
-    // Array to store constructed MST
+    // parent deve guardar toda spanning tree constru√≠da
     int parent[V];
     // Usado para pegar o menor valor entre os vertices examinados
     int key[V];
-    // VÈrtices ainda n„o incluÌdo na ·rvore
+    // V√©rtices ainda n√£o inclu√≠do na √°rvore
     bool mstSet[V];
 
     for (int i = 0; i < V; i++)
         key[i] = INT_MAX, mstSet[i] = false;
 
-    //Primeiro vÈrtice
+    //Primeiro v√©rtice
     key[0] = 0;
     parent[0] = -1;
 
     for (int count = 0; count < V-1; count++)
     {
-        //pega vÈrtice n„o incluÌdo na ·rvore de menor valor
+        //pega v√©rtice n√£o inclu√≠do na √°rvore de menor valor
         int u = minKey(key, mstSet);
 
-        // adiciona o vÈrtice na ·rvore
+        // adiciona o v√©rtice na √°rvore
         mstSet[u] = true;
 
-        // Update key value and parent index of
-        // the adjacent vertices of the picked vertex.
-        // Consider only those vertices which are not
-        // yet included in MST
+
+        // Atualiza key e parent de v√©rtices n√£o inclu√≠dos na MST adjacentes √†quele que foi selecionado
         for (int v = 0; v < V; v++)
 
-        // graph[u][v] is non zero only for adjacent vertices of m
-        // mstSet[v] is false for vertices not yet included in MST
-        // Update the key only if graph[u][v] is smaller than key[v]
+        // graph[u][v] deve ser > 0 para v√©rtices adjacentes
         if (graph[u][v] && mstSet[v] == false && graph[u][v] < key[v])
-            parent[v] = u, key[v] = graph[u][v];
+            parent[v] = u, key[v] = graph[u][v]; 
     }
 
-    // print the constructed MST
     printMST(parent, V, graph);
 }
 
