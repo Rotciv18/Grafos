@@ -1,6 +1,3 @@
-// A C / C++ program for Prim's Minimum
-// Spanning Tree (MST) algorithm. The program is
-// for adjacency matrix representation of the graph
 #include <stdio.h>
 #include <limits.h>
 #include<stdbool.h>
@@ -8,7 +5,6 @@
 #include "fprim.h"
 #include "fdij.h"
 
-// driver program to test above function
 int main(int argc, char *argv[])
 {
     FILE* file = fopen ("dij10.txt", "r"); //abre o arquivo passado como argumento
@@ -24,14 +20,11 @@ int main(int argc, char *argv[])
     int tam = 0;            //res
     int start = 0;
 
-    fscanf (file, "%d", &i);    //Lê o primeiro valor como número de vertices no arquivo
+    fscanf (file, "%d", &i);    //LÃª o primeiro valor como nÃºmero de vertices no arquivo
     tam = i;
     int limite = tam;   //uma linha deve ter [limite] colunas a serem lidas
-    //int array[tam][tam];
     int array[tam][tam];
-    //array = (int*)malloc(tam*sizeof(int));
     fscanf(file, "%d", &i);
-    //while (!feof (file)) //Passa os outros valores para o array
     for (coluna = 0; coluna < tam - 1 ; coluna++)
     {
         for (j = start; j < limite ; j++){
