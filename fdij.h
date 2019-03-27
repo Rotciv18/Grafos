@@ -38,7 +38,7 @@ void dijkstra(int G[V][V],int n,int startnode)
 				nextnode=i;
 			}
 
-			//check if a better path exists through nextnode
+			//checa se existe um caminho melhor
 			visited[nextnode]=1;
 			for(i=0;i<n;i++)
 				if(!visited[i])
